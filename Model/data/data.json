@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"text": "Apprendre le Design Pattern Factory",
+		"completed": true,
+		"category": "Travail"
+	},
+	{
+		"id": 2,
+		"text": "Comprendre les principes SOLID",
+		"completed": true,
+		"category": "Travail"
+	},
+	{
+		"id": 3,
+		"text": "Faire les courses",
+		"completed": false,
+		"category": "Maison"
+	},
+	{
+		"id": 4,
+		"text": "Cinéma",
+		"completed": false,
+		"category": "Divers"
+	}
+]

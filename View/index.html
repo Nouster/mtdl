@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="../Model/abstracts/AbstractTaskModel.js"
+			type="module"
+			defer
+		></script>
+		<script
+			src="../Model/abstracts/AbstractBaseTask.js"
+			type="module"
+			defer
+		></script>
+		<script
+			src="../Model/entities/AdvancedTask.js"
+			type="module"
+			defer
+		></script>
+		<script
+			src="../Model/factories/TaskFactory.js"
+			type="module"
+			defer
+		></script>
+		<script src="../Model/TaskModel.js" type="module" defer></script>
+
+		<script
+			src="abstracts/AbstractTaskRenderer.js"
+			type="module"
+			defer
+		></script>
+		<script src="abstracts/AbstractTaskView.js" type="module" defer></script>
+		<script
+			src="renderers/HTMLTaskListRenderer.js"
+			type="module"
+			defer
+		></script>
+		<script src="components/theme.js" type="module" defer></script>
+		<script src="components/TaskView.js" type="module" defer></script>
+
+		<script src="../Controller/TaskController.js" type="module" defer></script>
+		<title>My TODO List</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">MTDL</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Dropdown
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="d-flex" role="search" onsubmit="event.preventDefault()">
+						<input
+							class="form-control me-2"
+							type="search"
+							placeholder="Rechercher une tâche..."
+							aria-label="Search"
+						/>
+						<button class="btn btn-outline-success" type="button">
+							🔎 Rechercher
+						</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<div id="root">
+			<div class="container my-4">
+				<h1
+					class="d-flex justify-content-center py-5 bg-dark text-light border rounded-3"
+				>
+					My TODO List
+				</h1>
+			</div>
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="d-flex justify-content-center align-items-center my-5">
+						<div
+							class="input-group mb-3 d-flex justify-content-center align-items-center"
+						>
+							<span class="input-group-text" id="basic-addon1">🚀</span>
+							<input
+								id="task-input"
+								type="text"
+								class="form-control"
+								placeholder="📋 Ajouter une nouvelle tâche..."
+								aria-label="Username"
+								aria-describedby="basic-addon1"
+							/>
+							<select
+								id="category-select"
+								class="form-select"
+								style="max-width: 150px"
+							>
+								<option value="travail" selected>Travail</option>
+								<option value="maison">Maison</option>
+								<option value="divers">Divers</option>
+							</select>
+							<button
+								class="mx-3 border rounded-3 btn btn-outline-primary"
+								id="add-btn"
+							>
+								Ajouter
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center align-items-center my-3">
+					<div class="col-lg-6">
+						<label for="filter-category-select" class="form-label"
+							>Filtrer par catégorie:</label
+						>
+						<select id="filter-category-select" class="form-select">
+							<option value="all">Toutes les catégories</option>
+							<option value="travail">Travail</option>
+							<option value="maison">Maison</option>
+							<option value="divers">Divers</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="d-flex-colum justify-content-center align-items-center">
+					<ul id="task-list"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
